@@ -44,7 +44,7 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-purple-500/30 text-purple-300 text-sm font-medium">
             <Sparkles className="w-4 h-4 text-purple-400 animate-spin" style={{ animationDuration: '3s' }} />
-            <span>Welcome to my Digital Universe</span>
+            <span>Welcome to Sumon Universe</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight font-['Space_Grotesk'] leading-tight">
@@ -78,8 +78,8 @@ export default function Hero() {
           <div className="flex items-center justify-center lg:justify-start gap-4 pt-6">
             {[
               { icon: Mail, href: 'mailto:sumonarefinjob@gmail.com', label: 'Email' },
-              { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-              { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
+              { icon: Linkedin, href: 'https://www.linkedin.com/in/sumonarefin/', label: 'LinkedIn' },
+              { icon: Facebook, href: 'https://www.facebook.com/sumon.arafin', label: 'Facebook' },
             ].map((social, i) => {
               const Icon = social.icon;
               return (

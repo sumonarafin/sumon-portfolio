@@ -40,7 +40,7 @@ export default function Navbar() {
             className="w-11 h-11 rounded-full object-cover ring-2 ring-purple-500/40 group-hover:scale-110 group-hover:ring-purple-400 transition-all duration-300"
           />
           <span className="font-['Space_Grotesk'] font-bold text-xl tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-purple-400">
-            SUMON<span className="text-purple-500">.ARFN</span>
+            <span className="text-purple-500"></span>
           </span>
         </a>
 
