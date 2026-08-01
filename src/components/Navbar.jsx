@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Rocket, User, Briefcase, Cpu, GraduationCap, Award, Mail } from 'lucide-react';
+import { Menu, X, User, Briefcase, Cpu, GraduationCap, Award, Mail } from 'lucide-react';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -34,15 +34,11 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <a href="#" className="flex items-center gap-2 group">
-          {/*
-            Logo: showing a Rocket icon by default.
-            To use your own image logo instead, drop a file into
-            /public/images/logo.png and replace the block below with:
-            <img src="/images/logo.png" alt="Logo" className="w-9 h-9 rounded-xl" />
-          */}
-          <div className="p-2 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-500 group-hover:scale-110 transition-transform">
-            <Rocket className="w-5 h-5 text-white" />
-          </div>
+          <img
+            src="/images/logo.png"
+            alt="Sumon Arefin Logo"
+            className="w-11 h-11 rounded-full object-cover ring-2 ring-purple-500/40 group-hover:scale-110 group-hover:ring-purple-400 transition-all duration-300"
+          />
           <span className="font-['Space_Grotesk'] font-bold text-xl tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-purple-400">
             SUMON<span className="text-purple-500">.ARFN</span>
           </span>

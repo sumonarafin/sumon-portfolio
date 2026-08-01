@@ -103,30 +103,30 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.4, rotate: 8, filter: 'blur(20px)' }}
           animate={{ opacity: 1, scale: 1, rotate: 0, filter: 'blur(0px)' }}
           transition={{ duration: 1.2, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-5 flex justify-center relative"
+          className="lg:col-span-5 flex justify-center relative mb-8 lg:mb-0"
         >
           <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96">
             {/* Animated Glow Rings */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 blur-2xl opacity-50 animate-pulse-slow" />
             <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-cyan-500 via-purple-500 to-pink-500 opacity-75 blur-sm animate-spin" style={{ animationDuration: '15s' }} />
 
-            {/* Profile Frame Container */}
-            <div className="relative w-full h-full rounded-3xl overflow-hidden glass-card p-3 border border-white/20 shadow-2xl flex items-center justify-center">
+            {/* Profile Frame Container — true circle */}
+            <div className="relative w-full h-full rounded-full overflow-hidden glass-card p-3 border border-white/20 shadow-2xl flex items-center justify-center">
               {/* Profile photo — swap /public/images/profile.jpg to change it */}
               <img
                 src="/images/profile.jpg"
                 alt="MD Sumon Arefin"
-                className="w-full h-full object-cover rounded-2xl filter brightness-105 contrast-105 hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover rounded-full filter brightness-105 contrast-105 hover:scale-105 transition-transform duration-500"
               />
+            </div>
 
-              {/* Status Badge */}
-              <div className="absolute bottom-6 left-6 right-6 glass-card p-3 rounded-xl border border-white/10 flex items-center gap-3 backdrop-blur-xl">
-                <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                </span>
-                <span className="text-xs font-medium text-gray-200">Available for Admin &amp; Operations roles</span>
-              </div>
+            {/* Status Badge — floats below the circle so it doesn't clip the round edges */}
+            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-max glass-card px-4 py-2.5 rounded-full border border-white/10 flex items-center gap-2.5 backdrop-blur-xl shadow-lg whitespace-nowrap">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <span className="text-xs font-medium text-gray-200">Available for Admin &amp; Operations roles</span>
             </div>
           </div>
         </motion.div>

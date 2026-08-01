@@ -1,14 +1,38 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Mail, MessageCircle, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
-export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
+// Encode form data the way Netlify Forms expects (application/x-www-form-urlencoded)
+function encode(data) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+}
 
-  const handleSubmit = (e) => {
+export default function Contact() {
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    setStatus('sending');
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'contact', ...formData }),
+      });
+      setStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setTimeout(() => setStatus('idle'), 5000);
+    } catch (err) {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
+    }
   };
 
   return (
@@ -37,13 +61,18 @@ export default function Contact() {
           </div>
 
           <div className="glass-card p-6 rounded-2xl border border-white/10 flex items-center gap-5">
-            <div className="p-4 bg-pink-600/20 rounded-xl text-pink-400">
-              <Phone className="w-6 h-6" />
+            <div className="p-4 bg-emerald-600/20 rounded-xl text-emerald-400">
+              <MessageCircle className="w-6 h-6" />
             </div>
             <div>
-              <div className="text-xs text-gray-400">Call / WhatsApp</div>
-              <a href="tel:+8801944519852" className="text-white font-medium hover:text-pink-400 transition-colors">
-                +880 1944-519852
+              <div className="text-xs text-gray-400">Chat on WhatsApp</div>
+              <a
+                href="https://wa.me/8801944519852"
+                target="_blank"
+                rel="noreferrer"
+                className="text-white font-medium hover:text-emerald-400 transition-colors"
+              >
+                Message me on WhatsApp
               </a>
             </div>
           </div>
@@ -61,13 +90,30 @@ export default function Contact() {
 
         {/* Form */}
         <ScrollReveal direction="right" className="lg:col-span-7 glass-card p-8 rounded-3xl border border-white/10">
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form
+            name="contact"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+            className="space-y-6"
+          >
+            {/* Required for Netlify Forms */}
+            <input type="hidden" name="form-name" value="contact" />
+            <p className="hidden">
+              <label>
+                Don't fill this out: <input name="bot-field" onChange={handleChange} />
+              </label>
+            </p>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
                 <input
                   type="text"
+                  name="name"
                   required
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="John Doe"
                   className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
                 />
@@ -76,7 +122,10 @@ export default function Contact() {
                 <label className="block text-sm font-medium text-gray-300 mb-2">Your Email</label>
                 <input
                   type="email"
+                  name="email"
                   required
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="john@example.com"
                   className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
                 />
@@ -87,7 +136,10 @@ export default function Contact() {
               <label className="block text-sm font-medium text-gray-300 mb-2">Subject</label>
               <input
                 type="text"
+                name="subject"
                 required
+                value={formData.subject}
+                onChange={handleChange}
                 placeholder="Job Opportunity / Inquiry"
                 className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
               />
@@ -96,8 +148,11 @@ export default function Contact() {
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">Message</label>
               <textarea
+                name="message"
                 rows="5"
                 required
+                value={formData.message}
+                onChange={handleChange}
                 placeholder="Tell me about the opportunity..."
                 className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors resize-none"
               ></textarea>
@@ -105,12 +160,19 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 text-white font-bold flex items-center justify-center gap-2 hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] transition-all duration-300 hover:scale-[1.02]"
+              disabled={status === 'sending'}
+              className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 text-white font-bold flex items-center justify-center gap-2 hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] transition-all duration-300 hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
             >
-              {submitted ? (
+              {status === 'success' ? (
                 <>
                   <CheckCircle className="w-5 h-5 text-emerald-400" /> Message Sent Successfully!
                 </>
+              ) : status === 'error' ? (
+                <>
+                  <AlertCircle className="w-5 h-5 text-red-400" /> Something went wrong — try again
+                </>
+              ) : status === 'sending' ? (
+                <>Sending...</>
               ) : (
                 <>
                   <Send className="w-5 h-5" /> Send Message

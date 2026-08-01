@@ -11,6 +11,21 @@
   </head>
   <body class="bg-[#030014] text-gray-100 overflow-x-hidden font-['Plus_Jakarta_Sans',sans-serif]">
     <div id="root"></div>
+
+    <!--
+      Hidden static form: Netlify scans the built HTML at deploy time to
+      detect forms. Since the real form is rendered dynamically by React,
+      this plain hidden copy (same name + fields) lets Netlify register
+      it. The actual visible form in src/components/Contact.jsx submits
+      to this same form name via fetch.
+    -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+    </form>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
