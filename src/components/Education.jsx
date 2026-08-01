@@ -1,45 +1,59 @@
 import React from 'react';
+import { GraduationCap } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
-const educationData = [
-  {
-    year: "2018 - 2022",
-    title: "Diploma in Computer Engineering",
-    institution: "Daffodil Polytechnic Institute"
-  },
-  {
-    year: "2015 - 2017",
-    title: "Higher Secondary School Certificate (HSC)",
-    institution: "College of Finance & Management, Dhaka"
-  },
-  {
-    year: "Certification",
-    title: "Computer Office Application",
-    institution: "Bangladesh Technical Education Board"
-  },
-  {
-    year: "License",
-    title: "Driving License",
-    institution: "Bangladesh Road Transport Authority (BRTA)"
-  }
-];
+export default function Education() {
+  const educations = [
+    {
+      degree: 'Diploma in Computer Engineering',
+      institution: 'Daffodil Polytechnic Institute',
+      period: '2018 - 2022',
+      details: 'Built a foundation in computer engineering fundamentals, applied directly to administration, documentation, and operations work.'
+    },
+    {
+      degree: 'Higher Secondary School Certificate (HSC)',
+      institution: 'College of Finance & Management, Dhaka',
+      period: '2015 - 2017',
+      details: 'Completed secondary studies with a focus on finance and management fundamentals.'
+    }
+  ];
 
-const Education = () => {
+  const directions = ['left', 'right'];
+
   return (
-    <section id="education" className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-blue-500 mb-12 text-center" data-aos="fade-down" data-aos-duration="1000">Education & Licenses</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {educationData.map((item, index) => (
-            <div key={index} className="bg-slate-800 p-6 rounded-xl border-t-4 border-blue-500 shadow-lg transition transform hover:-translate-y-1" data-aos="flip-left" data-aos-duration="1000">
-              <span className="text-blue-400 font-semibold text-sm">{item.year}</span>
-              <h3 className="text-lg font-bold text-white mt-2 mb-1">{item.title}</h3>
-              <p className="text-gray-400 text-sm">{item.institution}</p>
+    <section id="education" className="py-24 px-6 relative z-10 max-w-5xl mx-auto">
+      <ScrollReveal direction="zoom" className="text-center mb-16">
+        <h2 className="text-3xl sm:text-5xl font-bold font-['Space_Grotesk'] text-white">
+          Education & <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">Learning</span>
+        </h2>
+        <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 mx-auto mt-4 rounded-full" />
+      </ScrollReveal>
+
+      <div className="grid grid-cols-1 gap-8">
+        {educations.map((edu, idx) => (
+          <ScrollReveal
+            key={idx}
+            direction={directions[idx % directions.length]}
+            delay={idx * 0.1}
+            className="glass-card p-8 rounded-3xl border border-white/10 glass-card-hover flex flex-col md:flex-row items-start gap-6"
+          >
+            <div className="p-4 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-2xl text-white shadow-lg">
+              <GraduationCap className="w-8 h-8" />
             </div>
-          ))}
-        </div>
+
+            <div className="space-y-2 flex-1">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                <h3 className="text-2xl font-bold text-white">{edu.degree}</h3>
+                <span className="text-xs px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 w-fit">
+                  {edu.period}
+                </span>
+              </div>
+              <p className="text-purple-300 font-medium">{edu.institution}</p>
+              <p className="text-gray-300 text-sm leading-relaxed pt-2">{edu.details}</p>
+            </div>
+          </ScrollReveal>
+        ))}
       </div>
     </section>
   );
-};
-
-export default Education;
+}

@@ -1,75 +1,116 @@
 import React from 'react';
+import { Briefcase, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
-const experiences = [
-  {
-    date: "2026 - Present",
-    title: "Restaurant Manager",
-    company: "Hungry Station, Dhamrai",
-    points: [
-      "Managed daily restaurant operations and staff scheduling.",
-      "Supervised customer service and ensured high service standards.",
-      "Maintained inventory and coordinated supplier purchases.",
-      "Prepared daily sales reports and operational records.",
-      "Ensured hygiene, food safety, and workplace cleanliness."
-    ]
-  },
-  {
-    date: "2024 - 2025",
-    title: "Computer Operator",
-    company: "KB, Cambodia",
-    points: [
-      "Maintained accurate operational records and business documentation.",
-      "Performed data entry with high accuracy using computer applications.",
-      "Coordinated with different departments to ensure smooth daily operations.",
-      "Supported workflow improvement through organized documentation."
-    ]
-  },
-  {
-    date: "2021 - 2024",
-    title: "Brand Promoter",
-    company: "Banglalink Communication Ltd, Dhaka",
-    points: [
-      "Promoted company products and services professionally.",
-      "Assisted customers with product information and service activation.",
-      "Built strong customer relationships through effective communication.",
-      "Worked with team members to achieve sales targets."
-    ]
-  },
-  {
-    date: "2019 - 2024",
-    title: "E-Commerce and Inventory Management",
-    company: "Soho Emporium, Remote",
-    points: [
-      "Managed online product listings and processed customer orders.",
-      "Coordinated shipping and logistics while maintaining inventory records.",
-      "Worked with Shopify and WordPress platforms."
-    ]
-  }
-];
+export default function Experience() {
+  const experiences = [
+    {
+      role: 'Restaurant Manager',
+      company: 'Hungry Station',
+      period: '2026 - Present',
+      location: 'Dhamrai, Dhaka',
+      points: [
+        'Managed daily restaurant operations and staff scheduling.',
+        'Supervised customer service and ensured high service standards.',
+        'Maintained inventory and coordinated supplier purchases.',
+        'Prepared daily sales reports and operational records.',
+        'Ensured hygiene, food safety, and workplace cleanliness.',
+        'Trained and supervised restaurant staff.',
+      ]
+    },
+    {
+      role: 'Computer Operator',
+      company: 'KB',
+      period: '2024 - 2025',
+      location: 'Cambodia',
+      points: [
+        'Maintained accurate operational records and business documentation.',
+        'Performed data entry with high accuracy using computer applications.',
+        'Coordinated with different departments to ensure smooth daily operations.',
+        'Prepared reports and maintained confidential documents.',
+        'Maintained compliance with company procedures and workplace standards.',
+      ]
+    },
+    {
+      role: 'Brand Promoter',
+      company: 'Banglalink Communication Ltd',
+      period: '2021 - 2024',
+      location: 'Dhaka, Bangladesh',
+      points: [
+        'Promoted company products and services professionally.',
+        'Assisted customers with product information and service activation.',
+        'Built strong customer relationships through effective communication.',
+        'Worked with team members to achieve sales targets.',
+        'Represented the company following organizational standards.',
+      ]
+    },
+    {
+      role: 'E-Commerce & Inventory Management',
+      company: 'Soho Emporium',
+      period: '2019 - 2024',
+      location: 'Remote',
+      points: [
+        'Managed online product listings across platforms.',
+        'Processed customer orders and maintained inventory records.',
+        'Coordinated shipping and logistics.',
+        'Prepared sales and inventory reports.',
+        'Worked with Shopify and WordPress platforms.',
+      ]
+    }
+  ];
 
-const Experience = () => {
+  const directions = ['left', 'right', 'left', 'right'];
+
   return (
-    <section id="experience" className="py-20">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-blue-500 mb-12 text-center" data-aos="fade-down" data-aos-duration="1000">Work Experience</h2>
-        <div className="border-l-2 border-blue-500 ml-4 md:ml-8 pl-6 space-y-12">
-          {experiences.map((exp, index) => (
-            <div key={index} className="relative bg-slate-800/80 p-6 rounded-xl shadow-lg border border-slate-700" data-aos="fade-up" data-aos-duration="1000">
-              <div className="absolute -left-[35px] top-6 w-4 h-4 bg-blue-500 rounded-full ring-4 ring-slate-900" />
-              <span className="text-blue-400 font-semibold text-sm">{exp.date}</span>
-              <h3 className="text-xl font-bold text-white mt-1">{exp.title}</h3>
-              <h4 className="text-gray-400 text-sm mb-4">{exp.company}</h4>
-              <ul className="list-disc list-inside space-y-2 text-gray-300 text-sm sm:text-base">
-                {exp.points.map((point, idx) => (
-                  <li key={idx}>{point}</li>
+    <section id="experience" className="py-24 px-6 relative z-10 max-w-5xl mx-auto">
+      <ScrollReveal direction="zoom" className="text-center mb-16">
+        <h2 className="text-3xl sm:text-5xl font-bold font-['Space_Grotesk'] text-white">
+          Work <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-400">Experience</span>
+        </h2>
+        <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-400 mx-auto mt-4 rounded-full" />
+      </ScrollReveal>
+
+      <div className="relative border-l-2 border-purple-800/40 ml-4 md:ml-32 space-y-12">
+        {experiences.map((exp, index) => (
+          <ScrollReveal
+            key={index}
+            direction={directions[index % directions.length]}
+            delay={index * 0.05}
+            className="relative pl-8 md:pl-12"
+          >
+            {/* Timeline Dot */}
+            <div className="absolute -left-[17px] top-1 w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center border-4 border-[#030014] shadow-lg shadow-purple-500/50">
+              <Briefcase className="w-3.5 h-3.5 text-white" />
+            </div>
+
+            <div className="glass-card p-6 md:p-8 rounded-3xl border border-white/10 glass-card-hover">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                <div>
+                  <h3 className="text-xl md:text-2xl font-bold text-white">{exp.role}</h3>
+                  <div className="text-purple-400 font-semibold">{exp.company}</div>
+                </div>
+                <div className="flex flex-wrap gap-3 text-xs text-gray-400">
+                  <span className="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-full border border-white/10">
+                    <Calendar className="w-3.5 h-3.5 text-purple-400" /> {exp.period}
+                  </span>
+                  <span className="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-full border border-white/10">
+                    <MapPin className="w-3.5 h-3.5 text-pink-400" /> {exp.location}
+                  </span>
+                </div>
+              </div>
+
+              <ul className="space-y-2.5 pt-2">
+                {exp.points.map((pt, pIdx) => (
+                  <li key={pIdx} className="flex items-start gap-3 text-gray-300 text-sm leading-relaxed">
+                    <CheckCircle2 className="w-4 h-4 text-purple-400 shrink-0 mt-1" />
+                    <span>{pt}</span>
+                  </li>
                 ))}
               </ul>
             </div>
-          ))}
-        </div>
+          </ScrollReveal>
+        ))}
       </div>
     </section>
   );
-};
-
-export default Experience;
+}

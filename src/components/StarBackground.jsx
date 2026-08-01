@@ -1,6 +1,7 @@
 import React, { useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import * as random from 'maath/random/dist/maath-random.esm';
 
 function StarBackgroundProps(props) {
@@ -28,13 +29,22 @@ function StarBackgroundProps(props) {
 }
 
 export default function StarsCanvas() {
+  // Subtle scroll-linked zoom on the starfield: as the visitor scrolls
+  // through the page, the field slowly scales up, like drifting deeper
+  // into the universe rather than a static, flat backdrop.
+  const { scrollYProgress } = useScroll();
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.35]);
+
   return (
-    <div className="w-full h-auto fixed inset-0 z-[0] pointer-events-none">
+    <motion.div
+      style={{ scale }}
+      className="w-full h-auto fixed inset-0 z-[0] pointer-events-none"
+    >
       <Canvas camera={{ position: [0, 0, 1] }}>
         <Suspense fallback={null}>
           <StarBackgroundProps />
         </Suspense>
       </Canvas>
-    </div>
+    </motion.div>
   );
 }

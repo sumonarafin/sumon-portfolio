@@ -1,11 +1,17 @@
 import React from 'react';
+import { Heart } from 'lucide-react';
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="bg-slate-950 py-6 text-center text-gray-500 text-sm border-t border-slate-800">
-      <p>&copy; 2026 MD Sumon Arefin. All Rights Reserved.</p>
+    <footer className="py-8 border-t border-white/10 relative z-10 text-center text-sm text-gray-400">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          © {new Date().getFullYear()} <span className="text-purple-400 font-semibold">Sumon Arefin</span>. All rights reserved.
+        </div>
+        <div className="flex items-center gap-1">
+          Designed with <Heart className="w-4 h-4 text-pink-500 fill-pink-500" /> in Space Mode
+        </div>
+      </div>
     </footer>
   );
-};
-
-export default Footer;
+}
