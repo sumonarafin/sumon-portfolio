@@ -25,7 +25,7 @@ export default function ScrollReveal({
   delay = 0,
   duration = 1,
   className = '',
-  once = true,
+  once = false,
   amount = 0.2,
   as = 'div',
 }) {
@@ -50,7 +50,7 @@ export default function ScrollReveal({
 }
 
 /** Parent wrapper for staggered children — use with <StaggerItem> below */
-export function StaggerGroup({ children, className = '', stagger = 0.15, once = true, amount = 0.2 }) {
+export function StaggerGroup({ children, className = '', stagger = 0.15, once = false, amount = 0.2 }) {
   return (
     <motion.div
       className={className}

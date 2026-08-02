@@ -5,6 +5,7 @@ import { Menu, X, User, Briefcase, Cpu, GraduationCap, Award, Mail } from 'lucid
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,6 +13,28 @@ export default function Navbar() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Scroll-spy: highlight whichever section is currently in view
+  useEffect(() => {
+    const sectionIds = ['about', 'skills', 'experience', 'education', 'certifications', 'contact'];
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-40% 0px -50% 0px', threshold: 0 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => sections.forEach((section) => observer.unobserve(section));
   }, []);
 
   const navLinks = [
@@ -46,15 +69,22 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-1 bg-white/5 backdrop-blur-lg px-4 py-1.5 rounded-full border border-white/10">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-purple-500/20 rounded-full transition-all duration-300"
-            >
-              {link.name}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.replace('#', '');
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
+                  isActive
+                    ? 'text-white bg-gradient-to-r from-purple-600/60 to-pink-600/60 shadow-[0_0_15px_rgba(168,85,247,0.4)]'
+                    : 'text-gray-300 hover:text-white hover:bg-purple-500/20'
+                }`}
+              >
+                {link.name}
+              </a>
+            );
+          })}
         </div>
 
         <a
@@ -82,14 +112,17 @@ export default function Navbar() {
         >
           {navLinks.map((link) => {
             const Icon = link.icon;
+            const isActive = activeSection === link.href.replace('#', '');
             return (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-3 text-gray-300 hover:text-purple-400 font-medium py-2 text-lg"
+                className={`flex items-center gap-3 font-medium py-2 text-lg transition-colors ${
+                  isActive ? 'text-purple-400' : 'text-gray-300 hover:text-purple-400'
+                }`}
               >
-                <Icon className="w-5 h-5 text-purple-500" />
+                <Icon className={`w-5 h-5 ${isActive ? 'text-purple-400' : 'text-purple-500'}`} />
                 {link.name}
               </a>
             );

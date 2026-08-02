@@ -1,6 +1,8 @@
 import React from 'react';
 import StarsCanvas from './components/StarBackground';
 import ScrollProgress from './components/ScrollProgress';
+import CursorGlow from './components/CursorGlow';
+import BackToTop from './components/BackToTop';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -17,6 +19,9 @@ export default function App() {
       {/* Scroll progress indicator */}
       <ScrollProgress />
 
+      {/* Cursor-following ambient glow (desktop only) */}
+      <CursorGlow />
+
       {/* 3D Canvas Background */}
       <StarsCanvas />
 
@@ -32,6 +37,9 @@ export default function App() {
         <Contact />
         <Footer />
       </div>
+
+      {/* Floating back-to-top button */}
+      <BackToTop />
     </div>
   );
 }
