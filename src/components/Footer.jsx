@@ -9,7 +9,7 @@ export default function Footer() {
           © {new Date().getFullYear()} <span className="text-purple-400 font-semibold">Sumon Arefin</span>. All rights reserved.
         </div>
         <div className="flex items-center gap-1">
-          Designed with <Heart className="w-4 h-4 text-pink-500 fill-pink-500" /> in SA Mode
+          Designed within <Heart className="w-4 h-4 text-pink-500 fill-pink-500" /> SA Mode
         </div>
       </div>
     </footer>

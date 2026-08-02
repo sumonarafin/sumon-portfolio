@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, User, Briefcase, Cpu, GraduationCap, Award, Mail } from 'lucide-react';
+import { Menu, X, User, Briefcase, Cpu, GraduationCap, Award, Mail, PartyPopper } from 'lucide-react';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -46,6 +46,10 @@ export default function Navbar() {
     { name: 'Contact', href: '#contact', icon: Mail },
   ];
 
+  // A separate, just-for-fun page — opens in a new tab so it never
+  // interrupts someone browsing the actual portfolio/CV content.
+  const funLink = { name: "Don't Click This", href: '/surprise/', icon: PartyPopper };
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -62,9 +66,6 @@ export default function Navbar() {
             alt="Sumon Arefin Logo"
             className="w-11 h-11 rounded-full object-cover ring-2 ring-purple-500/40 group-hover:scale-110 group-hover:ring-purple-400 transition-all duration-300"
           />
-          <span className="font-['Space_Grotesk'] font-bold text-xl tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-purple-400">
-            <span className="text-purple-500"></span>
-          </span>
         </a>
 
         {/* Desktop Menu */}
@@ -85,6 +86,15 @@ export default function Navbar() {
               </a>
             );
           })}
+          <a
+            href={funLink.href}
+            target="_blank"
+            rel="noreferrer"
+            className="ml-1 px-4 py-2 text-sm font-semibold rounded-full flex items-center gap-1.5 text-pink-200 bg-pink-500/10 hover:bg-pink-500/20 border border-pink-400/20 hover:border-pink-400/40 transition-all duration-300"
+          >
+            <funLink.icon className="w-3.5 h-3.5 animate-pulse" />
+            {funLink.name}
+          </a>
         </div>
 
         <a
@@ -127,6 +137,15 @@ export default function Navbar() {
               </a>
             );
           })}
+          <a
+            href={funLink.href}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-3 font-semibold py-2 text-lg text-pink-300 border-t border-white/10 mt-2 pt-4"
+          >
+            <funLink.icon className="w-5 h-5 text-pink-400 animate-pulse" />
+            {funLink.name}
+          </a>
         </motion.div>
       )}
     </motion.nav>
