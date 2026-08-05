@@ -8,21 +8,21 @@ export default function Skills() {
       title: 'Administration & Operations',
       icon: ClipboardList,
       skills: ['Office Administration', 'Workflow Optimisation', 'Team Coordination', 'Documentation & Reporting', 'Compliance & Standards'],
-      color: 'from-purple-500 to-indigo-500',
+      color: 'from-accent1 to-indigo-500',
       direction: 'left',
     },
     {
       title: 'Data & Systems',
       icon: Database,
       skills: ['Data Entry & Processing', 'ERP & Software Utilisation', 'Computer Office Applications', 'Inventory Management', 'Shopify / WordPress'],
-      color: 'from-pink-500 to-rose-500',
+      color: 'from-accent2 to-rose-500',
       direction: 'up',
     },
     {
       title: 'Customer & Market Facing',
       icon: MessageCircle,
       skills: ['Customer Service', 'Product & Market Analysis', 'E-Commerce Management', 'Brand Promotion', 'English / Bangla / Hindi'],
-      color: 'from-cyan-500 to-blue-500',
+      color: 'from-accent3 to-blue-500',
       direction: 'right',
     }
   ];
@@ -31,9 +31,9 @@ export default function Skills() {
     <section id="skills" className="py-24 px-6 relative z-10 max-w-7xl mx-auto">
       <ScrollReveal direction="zoom" className="text-center mb-16">
         <h2 className="text-3xl sm:text-5xl font-bold font-['Space_Grotesk'] text-white">
-          Professional <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">Skills</span>
+          Professional <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent3 to-accent1">Skills</span>
         </h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto mt-4 rounded-full" />
+        <div className="w-24 h-1 bg-gradient-to-r from-accent3 to-accent1 mx-auto mt-4 rounded-full" />
       </ScrollReveal>
 
       <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-8" stagger={0.2}>
@@ -55,7 +55,7 @@ export default function Skills() {
                 {cat.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-gray-300 group-hover:border-purple-500/40 transition-colors"
+                    className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-gray-300 group-hover:border-accent1/40 transition-colors"
                   >
                     {skill}
                   </span>

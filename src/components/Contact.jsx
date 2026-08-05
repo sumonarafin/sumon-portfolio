@@ -39,22 +39,22 @@ export default function Contact() {
     <section id="contact" className="py-24 px-6 relative z-10 max-w-7xl mx-auto">
       <ScrollReveal direction="zoom" className="text-center mb-16">
         <h2 className="text-3xl sm:text-5xl font-bold font-['Space_Grotesk'] text-white">
-          Get In <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">Touch</span>
+          Get In <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent1 to-accent2">Touch</span>
         </h2>
         <p className="text-gray-400 mt-3 text-base sm:text-lg">Looking for a reliable Administration or Operations professional? Let's talk.</p>
-        <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-500 mx-auto mt-4 rounded-full" />
+        <div className="w-24 h-1 bg-gradient-to-r from-accent1 to-accent2 mx-auto mt-4 rounded-full" />
       </ScrollReveal>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         {/* Contact Info Cards */}
         <ScrollReveal direction="left" className="lg:col-span-5 space-y-6">
           <div className="glass-card p-6 rounded-2xl border border-white/10 flex items-center gap-5">
-            <div className="p-4 bg-purple-600/20 rounded-xl text-purple-400">
+            <div className="p-4 bg-accent1/20 rounded-xl text-accent1">
               <Mail className="w-6 h-6" />
             </div>
             <div>
               <div className="text-xs text-gray-400">Email Me</div>
-              <a href="mailto:sumonarefinjob@gmail.com" className="text-white font-medium hover:text-purple-400 transition-colors">
+              <a href="mailto:sumonarefinjob@gmail.com" className="text-white font-medium hover:text-accent1 transition-colors">
                 sumonarefinjob@gmail.com
               </a>
             </div>
@@ -78,7 +78,7 @@ export default function Contact() {
           </div>
 
           <div className="glass-card p-6 rounded-2xl border border-white/10 flex items-center gap-5">
-            <div className="p-4 bg-cyan-600/20 rounded-xl text-cyan-400">
+            <div className="p-4 bg-accent3/20 rounded-xl text-accent3">
               <MapPin className="w-6 h-6" />
             </div>
             <div>
@@ -115,7 +115,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="John Doe"
-                  className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
+                  className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-accent1 transition-colors"
                 />
               </div>
               <div>
@@ -127,7 +127,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="john@example.com"
-                  className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
+                  className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-accent1 transition-colors"
                 />
               </div>
             </div>
@@ -141,7 +141,7 @@ export default function Contact() {
                 value={formData.subject}
                 onChange={handleChange}
                 placeholder="Job Opportunity / Inquiry"
-                className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
+                className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-accent1 transition-colors"
               />
             </div>
 
@@ -154,14 +154,14 @@ export default function Contact() {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Tell me about the opportunity..."
-                className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors resize-none"
+                className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-accent1 transition-colors resize-none"
               ></textarea>
             </div>
 
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 text-white font-bold flex items-center justify-center gap-2 hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] transition-all duration-300 hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
+              className="w-full py-4 rounded-xl bg-gradient-to-r from-accent1 via-accent2 to-accent1 text-white font-bold flex items-center justify-center gap-2 hover:shadow-[0_0_25px_rgba(var(--accent-1-rgb),0.5)] transition-all duration-300 hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
             >
               {status === 'success' ? (
                 <>

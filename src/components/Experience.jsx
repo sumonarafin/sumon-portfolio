@@ -65,12 +65,12 @@ export default function Experience() {
     <section id="experience" className="py-24 px-6 relative z-10 max-w-5xl mx-auto">
       <ScrollReveal direction="zoom" className="text-center mb-16">
         <h2 className="text-3xl sm:text-5xl font-bold font-['Space_Grotesk'] text-white">
-          Work <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-400">Experience</span>
+          Work <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent2 to-accent1">Experience</span>
         </h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-400 mx-auto mt-4 rounded-full" />
+        <div className="w-24 h-1 bg-gradient-to-r from-accent2 to-accent1 mx-auto mt-4 rounded-full" />
       </ScrollReveal>
 
-      <div className="relative border-l-2 border-purple-800/40 ml-4 md:ml-32 space-y-12">
+      <div className="relative border-l-2 border-accent1/40 ml-4 md:ml-32 space-y-12">
         {experiences.map((exp, index) => (
           <ScrollReveal
             key={index}
@@ -79,7 +79,7 @@ export default function Experience() {
             className="relative pl-8 md:pl-12"
           >
             {/* Timeline Dot */}
-            <div className="absolute -left-[17px] top-1 w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center border-4 border-[#030014] shadow-lg shadow-purple-500/50">
+            <div className="absolute -left-[17px] top-1 w-8 h-8 rounded-full bg-gradient-to-r from-accent1 to-accent2 flex items-center justify-center border-4 border-[#030014] shadow-lg shadow-accent1/50">
               <Briefcase className="w-3.5 h-3.5 text-white" />
             </div>
 
@@ -87,14 +87,14 @@ export default function Experience() {
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
                 <div>
                   <h3 className="text-xl md:text-2xl font-bold text-white">{exp.role}</h3>
-                  <div className="text-purple-400 font-semibold">{exp.company}</div>
+                  <div className="text-accent1 font-semibold">{exp.company}</div>
                 </div>
                 <div className="flex flex-wrap gap-3 text-xs text-gray-400">
                   <span className="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-full border border-white/10">
-                    <Calendar className="w-3.5 h-3.5 text-purple-400" /> {exp.period}
+                    <Calendar className="w-3.5 h-3.5 text-accent1" /> {exp.period}
                   </span>
                   <span className="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-full border border-white/10">
-                    <MapPin className="w-3.5 h-3.5 text-pink-400" /> {exp.location}
+                    <MapPin className="w-3.5 h-3.5 text-accent2" /> {exp.location}
                   </span>
                 </div>
               </div>
@@ -102,7 +102,7 @@ export default function Experience() {
               <ul className="space-y-2.5 pt-2">
                 {exp.points.map((pt, pIdx) => (
                   <li key={pIdx} className="flex items-start gap-3 text-gray-300 text-sm leading-relaxed">
-                    <CheckCircle2 className="w-4 h-4 text-purple-400 shrink-0 mt-1" />
+                    <CheckCircle2 className="w-4 h-4 text-accent1 shrink-0 mt-1" />
                     <span>{pt}</span>
                   </li>
                 ))}

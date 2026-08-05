@@ -26,7 +26,7 @@ export default function CursorGlow() {
   return (
     <div
       ref={glowRef}
-      className="fixed top-0 left-0 w-[500px] h-[500px] -ml-[250px] -mt-[250px] rounded-full pointer-events-none z-[1] opacity-[0.07] blur-[100px] bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-400 will-change-transform hidden md:block"
+      className="fixed top-0 left-0 w-[500px] h-[500px] -ml-[250px] -mt-[250px] rounded-full pointer-events-none z-[1] opacity-[0.07] blur-[100px] bg-gradient-to-r from-accent1 via-accent2 to-accent3 will-change-transform hidden md:block"
     />
   );
 }

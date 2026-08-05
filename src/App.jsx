@@ -3,11 +3,13 @@ import StarsCanvas from './components/StarBackground';
 import ScrollProgress from './components/ScrollProgress';
 import CursorGlow from './components/CursorGlow';
 import BackToTop from './components/BackToTop';
+import ThemeBadge from './components/ThemeBadge';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
+import Testimonials from './components/Testimonials';
 import Education from './components/Education';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
@@ -15,7 +17,13 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="bg-[#030014] text-white min-h-screen relative overflow-hidden">
+    <div
+      className="text-white min-h-screen relative overflow-hidden"
+      style={{ background: 'var(--bg-base)' }}
+    >
+      {/* Animated nebula wash — colors driven by the randomly picked theme */}
+      <div className="app-gradient-bg fixed inset-0 z-[-1] pointer-events-none" />
+
       {/* Scroll progress indicator */}
       <ScrollProgress />
 
@@ -32,6 +40,7 @@ export default function App() {
         <About />
         <Skills />
         <Experience />
+        <Testimonials />
         <Education />
         <Certifications />
         <Contact />
@@ -40,6 +49,9 @@ export default function App() {
 
       {/* Floating back-to-top button */}
       <BackToTop />
+
+      {/* Shows which random theme is active this visit */}
+      <ThemeBadge />
     </div>
   );
 }

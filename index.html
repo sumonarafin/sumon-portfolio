@@ -4,10 +4,89 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/images/profile.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO -->
     <title>MD Sumon Arefin | Administration & Operations Professional</title>
+    <meta name="description" content="MD Sumon Arefin is an Administration & Operations Professional based in Savar, Dhaka, Bangladesh, experienced in restaurant management, e-commerce operations, team coordination, and business administration. View experience, skills, and get in touch." />
+    <meta name="keywords" content="MD Sumon Arefin, Sumon Arefin, Sumon Arefin Dhaka, Administration Professional Bangladesh, Operations Manager Dhaka, Restaurant Manager Bangladesh, E-commerce Operations Bangladesh" />
+    <meta name="author" content="MD Sumon Arefin" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://sumonarefin.com/" />
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp previews) -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="MD Sumon Arefin | Administration & Operations Professional" />
+    <meta property="og:description" content="Administration & Operations Professional based in Dhaka, Bangladesh — experienced in restaurant management, e-commerce operations, and team coordination." />
+    <meta property="og:image" content="https://sumonarefin.com/images/profile.jpg" />
+    <meta property="og:url" content="https://sumonarefin.com/" />
+    <meta property="og:site_name" content="MD Sumon Arefin Portfolio" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MD Sumon Arefin | Administration & Operations Professional" />
+    <meta name="twitter:description" content="Administration & Operations Professional based in Dhaka, Bangladesh." />
+    <meta name="twitter:image" content="https://sumonarefin.com/images/profile.jpg" />
+
+    <!-- Structured data: helps Google understand this page is about a specific person -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "MD Sumon Arefin",
+      "url": "https://sumonarefin.com/",
+      "image": "https://sumonarefin.com/images/profile.jpg",
+      "jobTitle": "Administration & Operations Professional",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Savar, Dhaka",
+        "addressCountry": "Bangladesh"
+      },
+      "email": "mailto:sumonarefinjob@gmail.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/sumonarefin/",
+        "https://www.facebook.com/sumon.arafin"
+      ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!--
+      Random theme picker: runs synchronously before the page paints,
+      so there is zero flash and zero added load time. It just sets a
+      handful of CSS variables — every color/gradient in the site reads
+      from these, so a fresh random palette applies on every reload.
+      Nothing here touches layout, fonts, or JS bundle size.
+    -->
+    <script>
+      (function () {
+        var themes = [
+          { name: 'Galaxy Nebula', a1: '168,85,247', a2: '217,70,239', a3: '236,72,153', glow: '168,85,247', bg1: '#0a0014', bg2: '#1f0033', bg3: '#33004d' },
+          { name: 'Purple Aurora', a1: '147,51,234', a2: '16,185,129', a3: '45,212,191', glow: '147,51,234', bg1: '#0a0018', bg2: '#12002e', bg3: '#062e26' },
+          { name: 'Blue Cosmic', a1: '59,130,246', a2: '79,70,229', a3: '34,211,238', glow: '59,130,246', bg1: '#000814', bg2: '#001233', bg3: '#00224d' },
+          { name: 'Space Dust', a1: '245,158,11', a2: '251,146,60', a3: '217,119,87', glow: '245,158,11', bg1: '#14100a', bg2: '#251c12', bg3: '#332415' },
+          { name: 'Neon Grid', a1: '74,222,128', a2: '34,211,238', a3: '232,121,249', glow: '74,222,128', bg1: '#000000', bg2: '#0a0a0a', bg3: '#001a1a' },
+          { name: 'Cyber Galaxy', a1: '56,189,248', a2: '236,72,153', a3: '168,85,247', glow: '236,72,153', bg1: '#05000f', bg2: '#10002e', bg3: '#1a0033' },
+          { name: 'Purple Stars', a1: '196,181,253', a2: '168,85,247', a3: '216,180,254', glow: '196,181,253', bg1: '#0d0518', bg2: '#190a2e', bg3: '#241040' },
+          { name: 'Dark Abstract', a1: '148,163,184', a2: '139,92,246', a3: '100,116,139', glow: '148,163,184', bg1: '#08090a', bg2: '#121316', bg3: '#1a1c20' },
+          { name: 'Aurora Sky', a1: '52,211,153', a2: '56,189,248', a3: '129,140,248', glow: '52,211,153', bg1: '#001410', bg2: '#001d2e', bg3: '#0a1a33' },
+          { name: 'Digital Universe', a1: '34,211,238', a2: '59,130,246', a3: '147,197,253', glow: '34,211,238', bg1: '#000a14', bg2: '#001628', bg3: '#002038' },
+        ];
+        var t = themes[Math.floor(Math.random() * themes.length)];
+        var root = document.documentElement.style;
+        root.setProperty('--accent-1-rgb', t.a1);
+        root.setProperty('--accent-2-rgb', t.a2);
+        root.setProperty('--accent-3-rgb', t.a3);
+        root.setProperty('--glow-rgb', t.glow);
+        root.setProperty('--bg-1', t.bg1);
+        root.setProperty('--bg-2', t.bg2);
+        root.setProperty('--bg-3', t.bg3);
+        root.setProperty('--bg-base', t.bg1);
+        window.__ACTIVE_THEME__ = t.name;
+      })();
+    </script>
   </head>
   <body class="bg-[#030014] text-gray-100 overflow-x-hidden font-['Plus_Jakarta_Sans',sans-serif]">
     <div id="root"></div>

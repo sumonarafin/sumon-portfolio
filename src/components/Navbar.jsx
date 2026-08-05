@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, User, Briefcase, Cpu, GraduationCap, Award, Mail, PartyPopper } from 'lucide-react';
+import { Menu, X, User, Briefcase, Cpu, GraduationCap, Award, Mail, PartyPopper, Star } from 'lucide-react';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,7 +17,7 @@ export default function Navbar() {
 
   // Scroll-spy: highlight whichever section is currently in view
   useEffect(() => {
-    const sectionIds = ['about', 'skills', 'experience', 'education', 'certifications', 'contact'];
+    const sectionIds = ['about', 'skills', 'experience', 'testimonials', 'education', 'certifications', 'contact'];
     const sections = sectionIds
       .map((id) => document.getElementById(id))
       .filter(Boolean);
@@ -41,6 +41,7 @@ export default function Navbar() {
     { name: 'About', href: '#about', icon: User },
     { name: 'Skills', href: '#skills', icon: Cpu },
     { name: 'Experience', href: '#experience', icon: Briefcase },
+    { name: 'Testimonials', href: '#testimonials', icon: Star },
     { name: 'Education', href: '#education', icon: GraduationCap },
     { name: 'Certifications', href: '#certifications', icon: Award },
     { name: 'Contact', href: '#contact', icon: Mail },
@@ -56,7 +57,7 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.8 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'py-3 bg-[#030014]/80 backdrop-blur-md border-b border-purple-900/30 shadow-lg shadow-purple-950/20' : 'py-6 bg-transparent'
+        scrolled ? 'py-3 bg-[#030014]/80 backdrop-blur-md border-b border-accent1/30 shadow-lg shadow-accent1/20' : 'py-6 bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -64,7 +65,7 @@ export default function Navbar() {
           <img
             src="/images/logo.png"
             alt="Sumon Arefin Logo"
-            className="w-11 h-11 rounded-full object-cover ring-2 ring-purple-500/40 group-hover:scale-110 group-hover:ring-purple-400 transition-all duration-300"
+            className="w-11 h-11 rounded-full object-cover ring-2 ring-accent1/40 group-hover:scale-110 group-hover:ring-accent1 transition-all duration-300"
           />
         </a>
 
@@ -78,8 +79,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                   isActive
-                    ? 'text-white bg-gradient-to-r from-purple-600/60 to-pink-600/60 shadow-[0_0_15px_rgba(168,85,247,0.4)]'
-                    : 'text-gray-300 hover:text-white hover:bg-purple-500/20'
+                    ? 'text-white bg-gradient-to-r from-accent1/60 to-accent2/60 shadow-[0_0_15px_rgba(var(--accent-1-rgb),0.4)]'
+                    : 'text-gray-300 hover:text-white hover:bg-accent1/20'
                 }`}
               >
                 {link.name}
@@ -90,7 +91,7 @@ export default function Navbar() {
             href={funLink.href}
             target="_blank"
             rel="noreferrer"
-            className="ml-1 px-4 py-2 text-sm font-semibold rounded-full flex items-center gap-1.5 text-pink-200 bg-pink-500/10 hover:bg-pink-500/20 border border-pink-400/20 hover:border-pink-400/40 transition-all duration-300"
+            className="ml-1 px-4 py-2 text-sm font-semibold rounded-full flex items-center gap-1.5 text-accent2 bg-accent2/10 hover:bg-accent2/20 border border-accent2/20 hover:border-accent2/40 transition-all duration-300"
           >
             <funLink.icon className="w-3.5 h-3.5 animate-pulse" />
             {funLink.name}
@@ -99,7 +100,7 @@ export default function Navbar() {
 
         <a
           href="#contact"
-          className="hidden md:inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-purple-600 to-pink-600 rounded-full hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] transition-all duration-300 hover:scale-105"
+          className="hidden md:inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-accent1 to-accent2 rounded-full hover:shadow-[0_0_25px_rgba(var(--accent-1-rgb),0.5)] transition-all duration-300 hover:scale-105"
         >
           Hire Me
         </a>
@@ -118,7 +119,7 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden bg-[#0a0520]/95 backdrop-blur-xl border-b border-purple-800/30 px-6 py-6 flex flex-col gap-4 mt-3"
+          className="md:hidden bg-[#0a0520]/95 backdrop-blur-xl border-b border-accent1/30 px-6 py-6 flex flex-col gap-4 mt-3"
         >
           {navLinks.map((link) => {
             const Icon = link.icon;
@@ -129,10 +130,10 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className={`flex items-center gap-3 font-medium py-2 text-lg transition-colors ${
-                  isActive ? 'text-purple-400' : 'text-gray-300 hover:text-purple-400'
+                  isActive ? 'text-accent1' : 'text-gray-300 hover:text-accent1'
                 }`}
               >
-                <Icon className={`w-5 h-5 ${isActive ? 'text-purple-400' : 'text-purple-500'}`} />
+                <Icon className={`w-5 h-5 ${isActive ? 'text-accent1' : 'text-accent1'}`} />
                 {link.name}
               </a>
             );
@@ -141,9 +142,9 @@ export default function Navbar() {
             href={funLink.href}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-3 font-semibold py-2 text-lg text-pink-300 border-t border-white/10 mt-2 pt-4"
+            className="flex items-center gap-3 font-semibold py-2 text-lg text-accent2 border-t border-white/10 mt-2 pt-4"
           >
-            <funLink.icon className="w-5 h-5 text-pink-400 animate-pulse" />
+            <funLink.icon className="w-5 h-5 text-accent2 animate-pulse" />
             {funLink.name}
           </a>
         </motion.div>

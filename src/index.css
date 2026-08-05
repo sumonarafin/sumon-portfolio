@@ -2,8 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fallback defaults (Nebula theme) — used only if the inline theme
+   picker script in index.html doesn't run for some reason. */
+:root {
+  --accent-1-rgb: 168,85,247;
+  --accent-2-rgb: 236,72,153;
+  --accent-3-rgb: 34,211,238;
+  --glow-rgb: 127,90,240;
+  --bg-1: #030014;
+  --bg-2: #1a0b2e;
+  --bg-3: #2d1b4e;
+  --bg-base: #030014;
+}
+
 ::selection {
-  background: #7f5af0;
+  background: rgb(var(--accent-1-rgb));
   color: #fff;
 }
 
@@ -12,14 +25,14 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #030014;
+  background: var(--bg-base);
 }
 ::-webkit-scrollbar-thumb {
   background: #2a2438;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #7f5af0;
+  background: rgb(var(--accent-1-rgb));
 }
 
 .glass-card {
@@ -35,10 +48,25 @@
 
 .glass-card-hover:hover {
   transform: translateY(-8px) scale(1.01);
-  border-color: rgba(127, 90, 240, 0.4);
-  box-shadow: 0 20px 40px rgba(127, 90, 240, 0.15);
+  border-color: rgba(var(--accent-1-rgb), 0.4);
+  box-shadow: 0 20px 40px rgba(var(--accent-1-rgb), 0.15);
 }
 
 .glow-text {
-  text-shadow: 0 0 20px rgba(127, 90, 240, 0.6);
+  text-shadow: 0 0 20px rgba(var(--glow-rgb), 0.6);
+}
+
+/* Subtle animated nebula wash behind the star field — colors come from
+   the randomly-picked theme, giving a genuinely different "space" mood
+   on every reload without any extra JS work at runtime. */
+.app-gradient-bg {
+  background: linear-gradient(120deg, var(--bg-1), var(--bg-2), var(--bg-3), var(--bg-2), var(--bg-1));
+  background-size: 400% 400%;
+  animation: gradientShift 25s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }

@@ -24,11 +24,11 @@ export default function Hero() {
       {/* Background Glow Orbs with parallax drift */}
       <motion.div
         style={{ y: orb1Y }}
-        className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px] pointer-events-none animate-pulse-slow"
+        className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent1/20 rounded-full blur-[120px] pointer-events-none animate-pulse-slow"
       />
       <motion.div
         style={{ y: orb2Y }}
-        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-600/20 rounded-full blur-[120px] pointer-events-none animate-pulse-slow"
+        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent2/20 rounded-full blur-[120px] pointer-events-none animate-pulse-slow"
       />
 
       <motion.div
@@ -42,35 +42,35 @@ export default function Hero() {
           transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-7 space-y-6 text-center lg:text-left"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-purple-500/30 text-purple-300 text-sm font-medium">
-            <Sparkles className="w-4 h-4 text-purple-400 animate-spin" style={{ animationDuration: '3s' }} />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-accent1/30 text-accent1 text-sm font-medium">
+            <Sparkles className="w-4 h-4 text-accent1 animate-spin" style={{ animationDuration: '3s' }} />
             <span>Welcome to Sumon Universe</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight font-['Space_Grotesk'] leading-tight">
             Hi, I'm <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-cyan-400 glow-text">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent1 via-accent2 to-accent3 glow-text">
               MD Sumon Arefin
             </span>
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-300 font-light max-w-2xl leading-relaxed">
-            A dedicated <span className="text-purple-400 font-semibold">Administration &amp; Operations Professional</span> with hands-on experience across <span className="text-pink-400 font-semibold">team coordination</span>, e-commerce, and daily business operations — turning busy, moving parts into smooth, well-run workflows.
+            A dedicated <span className="text-accent1 font-semibold">Administration &amp; Operations Professional</span> with hands-on experience across <span className="text-accent2 font-semibold">team coordination</span>, e-commerce, and daily business operations — turning busy, moving parts into smooth, well-run workflows.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
             <a
               href="#contact"
-              className="px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-size-200 text-white font-semibold flex items-center gap-3 hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] hover:scale-105 transition-all duration-300"
+              className="px-8 py-4 rounded-full bg-gradient-to-r from-accent1 via-accent2 to-accent1 bg-size-200 text-white font-semibold flex items-center gap-3 hover:shadow-[0_0_30px_rgba(var(--accent-1-rgb),0.6)] hover:scale-105 transition-all duration-300"
             >
               Get In Touch <ArrowRight className="w-5 h-5" />
             </a>
             <a
               href="/MD_Sumon_Arefin_CV.pdf"
               download
-              className="px-8 py-4 rounded-full glass-card hover:bg-white/10 text-white font-semibold flex items-center gap-3 border border-white/20 hover:border-purple-400/50 transition-all duration-300"
+              className="px-8 py-4 rounded-full glass-card hover:bg-white/10 text-white font-semibold flex items-center gap-3 border border-white/20 hover:border-accent1/50 transition-all duration-300"
             >
-              <Download className="w-5 h-5 text-purple-400" /> Download CV
+              <Download className="w-5 h-5 text-accent1" /> Download CV
             </a>
           </div>
 
@@ -89,7 +89,7 @@ export default function Hero() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={social.label}
-                  className="p-3 rounded-xl glass-card hover:border-purple-500 hover:text-purple-400 text-gray-400 transition-all duration-300 hover:scale-110"
+                  className="p-3 rounded-xl glass-card hover:border-accent1 hover:text-accent1 text-gray-400 transition-all duration-300 hover:scale-110"
                 >
                   <Icon className="w-5 h-5" />
                 </a>
@@ -107,8 +107,8 @@ export default function Hero() {
         >
           <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96">
             {/* Animated Glow Rings */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 blur-2xl opacity-50 animate-pulse-slow" />
-            <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-cyan-500 via-purple-500 to-pink-500 opacity-75 blur-sm animate-spin" style={{ animationDuration: '15s' }} />
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-accent1 to-accent2 blur-2xl opacity-50 animate-pulse-slow" />
+            <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-accent3 via-accent1 to-accent2 opacity-75 blur-sm animate-spin" style={{ animationDuration: '15s' }} />
 
             {/* Profile Frame Container — true circle */}
             <div className="relative w-full h-full rounded-full overflow-hidden glass-card p-3 border border-white/20 shadow-2xl flex items-center justify-center">
