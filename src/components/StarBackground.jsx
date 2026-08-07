@@ -1,12 +1,32 @@
-import React, { useRef, Suspense } from 'react';
+import React, { useRef, Suspense, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import * as THREE from 'three';
 import * as random from 'maath/random/dist/maath-random.esm';
 
-function StarBackgroundProps(props) {
+// Reads the active theme's accent color and blends it toward white,
+// so the star field carries a subtle tint of whatever theme loaded
+// this time instead of always looking identical (plain white) no
+// matter which theme is active.
+function getThemeTintedStarColor() {
+  try {
+    const styles = getComputedStyle(document.documentElement);
+    const raw = styles.getPropertyValue('--accent-1-rgb').trim(); // "168,85,247"
+    const [r, g, b] = raw.split(',').map((n) => parseInt(n.trim(), 10) / 255);
+    const accent = new THREE.Color(r, g, b);
+    const white = new THREE.Color(1, 1, 1);
+    // Mostly white (so stars still read as stars), with a soft theme tint
+    return white.lerp(accent, 0.35);
+  } catch (e) {
+    return new THREE.Color('#ffffff');
+  }
+}
+
+function StarField(props) {
   const ref = useRef();
-  const sphere = random.inSphere(new Float32Array(5000), { radius: 1.2 });
+  const sphere = random.inSphere(new Float32Array(6000), { radius: 1.2 });
+  const starColor = useMemo(() => getThemeTintedStarColor(), []);
 
   useFrame((state, delta) => {
     ref.current.rotation.x -= delta / 10;
@@ -18,8 +38,8 @@ function StarBackgroundProps(props) {
       <Points ref={ref} positions={sphere} stride={3} frustumCulled {...props}>
         <PointMaterial
           transparent
-          color="#ffffff"
-          size={0.002}
+          color={starColor}
+          size={0.0022}
           sizeAttenuation={true}
           depthWrite={false}
         />
@@ -40,9 +60,9 @@ export default function StarsCanvas() {
       style={{ scale }}
       className="w-full h-auto fixed inset-0 z-[0] pointer-events-none"
     >
-      <Canvas camera={{ position: [0, 0, 1] }}>
+      <Canvas camera={{ position: [0, 0, 1] }} gl={{ alpha: true }}>
         <Suspense fallback={null}>
-          <StarBackgroundProps />
+          <StarField />
         </Suspense>
       </Canvas>
     </motion.div>

@@ -161,7 +161,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="w-full py-4 rounded-xl bg-gradient-to-r from-accent1 via-accent2 to-accent1 text-white font-bold flex items-center justify-center gap-2 hover:shadow-[0_0_25px_rgba(var(--accent-1-rgb),0.5)] transition-all duration-300 hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
+              className="w-full py-4 rounded-xl bg-gradient-to-r from-accent1 via-accent2 to-accent1 text-white font-bold flex items-center justify-center gap-2 hover:shadow-[0_0_25px_rgb(var(--accent-1-rgb)_/_0.5)] transition-all duration-300 hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
             >
               {status === 'success' ? (
                 <>

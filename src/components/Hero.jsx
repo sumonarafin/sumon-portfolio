@@ -49,7 +49,7 @@ export default function Hero() {
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight font-['Space_Grotesk'] leading-tight">
             Hi, I'm <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent1 via-accent2 to-accent3 glow-text">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent1 via-accent2 to-accent3">
               MD Sumon Arefin
             </span>
           </h1>
@@ -61,7 +61,7 @@ export default function Hero() {
           <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
             <a
               href="#contact"
-              className="px-8 py-4 rounded-full bg-gradient-to-r from-accent1 via-accent2 to-accent1 bg-size-200 text-white font-semibold flex items-center gap-3 hover:shadow-[0_0_30px_rgba(var(--accent-1-rgb),0.6)] hover:scale-105 transition-all duration-300"
+              className="px-8 py-4 rounded-full bg-gradient-to-r from-accent1 via-accent2 to-accent1 bg-size-200 text-white font-semibold flex items-center gap-3 hover:shadow-[0_0_30px_rgb(var(--accent-1-rgb)_/_0.6)] hover:scale-105 transition-all duration-300"
             >
               Get In Touch <ArrowRight className="w-5 h-5" />
             </a>

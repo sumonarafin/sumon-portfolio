@@ -79,7 +79,7 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                   isActive
-                    ? 'text-white bg-gradient-to-r from-accent1/60 to-accent2/60 shadow-[0_0_15px_rgba(var(--accent-1-rgb),0.4)]'
+                    ? 'text-white bg-gradient-to-r from-accent1/60 to-accent2/60 shadow-[0_0_15px_rgb(var(--accent-1-rgb)_/_0.4)]'
                     : 'text-gray-300 hover:text-white hover:bg-accent1/20'
                 }`}
               >
@@ -100,7 +100,7 @@ export default function Navbar() {
 
         <a
           href="#contact"
-          className="hidden md:inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-accent1 to-accent2 rounded-full hover:shadow-[0_0_25px_rgba(var(--accent-1-rgb),0.5)] transition-all duration-300 hover:scale-105"
+          className="hidden md:inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-accent1 to-accent2 rounded-full hover:shadow-[0_0_25px_rgb(var(--accent-1-rgb)_/_0.5)] transition-all duration-300 hover:scale-105"
         >
           Hire Me
         </a>

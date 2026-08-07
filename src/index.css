@@ -5,10 +5,10 @@
 /* Fallback defaults (Nebula theme) — used only if the inline theme
    picker script in index.html doesn't run for some reason. */
 :root {
-  --accent-1-rgb: 168,85,247;
-  --accent-2-rgb: 236,72,153;
-  --accent-3-rgb: 34,211,238;
-  --glow-rgb: 127,90,240;
+  --accent-1-rgb: 168 85 247;
+  --accent-2-rgb: 236 72 153;
+  --accent-3-rgb: 34 211 238;
+  --glow-rgb: 127 90 240;
   --bg-1: #030014;
   --bg-2: #1a0b2e;
   --bg-3: #2d1b4e;
@@ -48,13 +48,15 @@
 
 .glass-card-hover:hover {
   transform: translateY(-8px) scale(1.01);
-  border-color: rgba(var(--accent-1-rgb), 0.4);
-  box-shadow: 0 20px 40px rgba(var(--accent-1-rgb), 0.15);
+  border-color: rgb(var(--accent-1-rgb) / 0.4);
+  box-shadow: 0 20px 40px rgb(var(--accent-1-rgb) / 0.15);
 }
 
-.glow-text {
-  text-shadow: 0 0 20px rgba(var(--glow-rgb), 0.6);
-}
+/* Note: avoid combining `filter` or `text-shadow` directly on elements
+   that use bg-clip-text + text-transparent (gradient text) — several
+   browsers fail to render the glyphs at all in that combination. For a
+   glow effect on gradient text, layer a blurred duplicate behind it
+   instead (see Hero.jsx name heading for the pattern). */
 
 /* ============================= */
 /* ANIMATED THEME BACKGROUNDS      */
@@ -78,8 +80,8 @@
 .bg-nebula .blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.32;
+  filter: blur(70px);
+  opacity: 0.5;
   will-change: transform;
 }
 .bg-nebula .blob-1 {
@@ -116,22 +118,22 @@
   position: absolute;
   inset: -50%;
   background-image:
-    linear-gradient(rgba(var(--accent-1-rgb), 0.18) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(var(--accent-1-rgb), 0.18) 1px, transparent 1px);
+    linear-gradient(rgb(var(--accent-1-rgb) / 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--accent-1-rgb) / 0.18) 1px, transparent 1px);
   background-size: 48px 48px;
   animation: gridSlide 18s linear infinite;
   will-change: transform;
 }
 .bg-grid .glow-1 {
   position: absolute; width: 50vw; height: 50vw; border-radius: 50%;
-  top: -10%; left: 60%; filter: blur(110px); opacity: 0.25;
+  top: -10%; left: 60%; filter: blur(90px); opacity: 0.4;
   background: rgb(var(--accent-2-rgb));
   animation: drift1 24s ease-in-out infinite;
   will-change: transform;
 }
 .bg-grid .glow-2 {
   position: absolute; width: 45vw; height: 45vw; border-radius: 50%;
-  bottom: -15%; left: -10%; filter: blur(110px); opacity: 0.22;
+  bottom: -15%; left: -10%; filter: blur(90px); opacity: 0.38;
   background: rgb(var(--accent-3-rgb));
   animation: drift2 28s ease-in-out infinite;
   will-change: transform;
@@ -146,7 +148,7 @@
   position: absolute;
   left: -20%; width: 140%; height: 55vh;
   filter: blur(70px);
-  opacity: 0.28;
+  opacity: 0.45;
   border-radius: 50%;
   will-change: transform;
 }
@@ -181,14 +183,14 @@
 /* DUST: slow drifting glow particles */
 .bg-dust .glow-1 {
   position: absolute; width: 55vw; height: 55vw; border-radius: 50%;
-  top: -15%; left: -10%; filter: blur(100px); opacity: 0.28;
+  top: -15%; left: -10%; filter: blur(80px); opacity: 0.45;
   background: rgb(var(--accent-1-rgb));
   animation: drift1 28s ease-in-out infinite;
   will-change: transform;
 }
 .bg-dust .glow-2 {
   position: absolute; width: 45vw; height: 45vw; border-radius: 50%;
-  bottom: -10%; right: -10%; filter: blur(100px); opacity: 0.24;
+  bottom: -10%; right: -10%; filter: blur(80px); opacity: 0.4;
   background: rgb(var(--accent-2-rgb));
   animation: drift2 32s ease-in-out infinite;
   will-change: transform;

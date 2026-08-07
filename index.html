@@ -63,16 +63,16 @@
     <script>
       (function () {
         var themes = [
-          { name: 'Galaxy Nebula', type: 'nebula', a1: '168,85,247', a2: '217,70,239', a3: '236,72,153', glow: '168,85,247', bg1: '#0a0014', bg2: '#1f0033', bg3: '#33004d' },
-          { name: 'Purple Aurora', type: 'aurora', a1: '167,85,247', a2: '16,185,129', a3: '45,212,191', glow: '147,51,234', bg1: '#0a0018', bg2: '#12002e', bg3: '#062e26' },
-          { name: 'Blue Cosmic', type: 'nebula', a1: '59,130,246', a2: '79,70,229', a3: '34,211,238', glow: '59,130,246', bg1: '#000814', bg2: '#001233', bg3: '#00224d' },
-          { name: 'Space Dust', type: 'dust', a1: '245,158,11', a2: '251,146,60', a3: '217,119,87', glow: '245,158,11', bg1: '#14100a', bg2: '#251c12', bg3: '#332415' },
-          { name: 'Neon Grid', type: 'grid', a1: '74,222,128', a2: '34,211,238', a3: '232,121,249', glow: '74,222,128', bg1: '#000000', bg2: '#0a0a0a', bg3: '#001a1a' },
-          { name: 'Cyber Galaxy', type: 'grid', a1: '56,189,248', a2: '236,72,153', a3: '168,85,247', glow: '236,72,153', bg1: '#05000f', bg2: '#10002e', bg3: '#1a0033' },
-          { name: 'Purple Stars', type: 'nebula', a1: '196,181,253', a2: '168,85,247', a3: '216,180,254', glow: '196,181,253', bg1: '#0d0518', bg2: '#190a2e', bg3: '#241040' },
-          { name: 'Dark Abstract', type: 'nebula', a1: '165,180,252', a2: '167,139,250', a3: '129,140,248', glow: '165,180,252', bg1: '#08090a', bg2: '#121316', bg3: '#1a1c20' },
-          { name: 'Aurora Sky', type: 'aurora', a1: '52,211,153', a2: '56,189,248', a3: '129,140,248', glow: '52,211,153', bg1: '#001410', bg2: '#001d2e', bg3: '#0a1a33' },
-          { name: 'Digital Universe', type: 'grid', a1: '34,211,238', a2: '59,130,246', a3: '147,197,253', glow: '34,211,238', bg1: '#000a14', bg2: '#001628', bg3: '#002038' },
+          { name: 'Galaxy Nebula', type: 'nebula', a1: '168 85 247', a2: '217 70 239', a3: '236 72 153', glow: '168 85 247', bg1: '#0a0014', bg2: '#1f0033', bg3: '#33004d' },
+          { name: 'Purple Aurora', type: 'aurora', a1: '167 85 247', a2: '16 185 129', a3: '45 212 191', glow: '147 51 234', bg1: '#0a0018', bg2: '#12002e', bg3: '#062e26' },
+          { name: 'Blue Cosmic', type: 'nebula', a1: '59 130 246', a2: '79 70 229', a3: '34 211 238', glow: '59 130 246', bg1: '#000814', bg2: '#001233', bg3: '#00224d' },
+          { name: 'Space Dust', type: 'dust', a1: '245 158 11', a2: '251 146 60', a3: '217 119 87', glow: '245 158 11', bg1: '#14100a', bg2: '#251c12', bg3: '#332415' },
+          { name: 'Neon Grid', type: 'grid', a1: '74 222 128', a2: '34 211 238', a3: '232 121 249', glow: '74 222 128', bg1: '#000000', bg2: '#0a0a0a', bg3: '#001a1a' },
+          { name: 'Cyber Galaxy', type: 'grid', a1: '56 189 248', a2: '236 72 153', a3: '168 85 247', glow: '236 72 153', bg1: '#05000f', bg2: '#10002e', bg3: '#1a0033' },
+          { name: 'Purple Stars', type: 'nebula', a1: '196 181 253', a2: '168 85 247', a3: '216 180 254', glow: '196 181 253', bg1: '#0d0518', bg2: '#190a2e', bg3: '#241040' },
+          { name: 'Dark Abstract', type: 'nebula', a1: '165 180 252', a2: '167 139 250', a3: '129 140 248', glow: '165 180 252', bg1: '#08090a', bg2: '#121316', bg3: '#1a1c20' },
+          { name: 'Aurora Sky', type: 'aurora', a1: '52 211 153', a2: '56 189 248', a3: '129 140 248', glow: '52 211 153', bg1: '#001410', bg2: '#001d2e', bg3: '#0a1a33' },
+          { name: 'Digital Universe', type: 'grid', a1: '34 211 238', a2: '59 130 246', a3: '147 197 253', glow: '34 211 238', bg1: '#000a14', bg2: '#001628', bg3: '#002038' },
         ];
         var t = themes[Math.floor(Math.random() * themes.length)];
         var root = document.documentElement.style;
