@@ -4,6 +4,7 @@ import ScrollProgress from './components/ScrollProgress';
 import CursorGlow from './components/CursorGlow';
 import BackToTop from './components/BackToTop';
 import ThemeBadge from './components/ThemeBadge';
+import AnimatedBackground from './components/AnimatedBackground';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -21,8 +22,8 @@ export default function App() {
       className="text-white min-h-screen relative overflow-hidden"
       style={{ background: 'var(--bg-base)' }}
     >
-      {/* Animated nebula wash — colors driven by the randomly picked theme */}
-      <div className="app-gradient-bg fixed inset-0 z-[-1] pointer-events-none" />
+      {/* Theme-aware animated background (nebula / grid / aurora / dust) */}
+      <AnimatedBackground />
 
       {/* Scroll progress indicator */}
       <ScrollProgress />
