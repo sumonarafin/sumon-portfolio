@@ -113,7 +113,7 @@ export default function Hero() {
             {/* Profile Frame Container — true circle */}
             <div className="relative w-full h-full rounded-full overflow-hidden glass-card p-3 border border-white/20 shadow-2xl flex items-center justify-center">
               {/* Profile photo — swap /public/images/profile.jpg to change it */}
-              <picture>
+              <picture className="block w-full h-full">
                 <source srcSet="/images/profile.webp" type="image/webp" />
                 <img
                   src="/images/profile.jpg"

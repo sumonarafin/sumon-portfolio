@@ -62,7 +62,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <a href="#" className="flex items-center gap-2 group">
-          <picture>
+          <picture className="block w-11 h-11">
             <source srcSet="/images/logo.webp" type="image/webp" />
             <img
               src="/images/logo-128.jpg"
