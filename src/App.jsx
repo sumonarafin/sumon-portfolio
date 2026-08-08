@@ -1,5 +1,5 @@
-import React from 'react';
-import StarsCanvas from './components/StarBackground';
+import React, { Suspense, lazy } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import ScrollProgress from './components/ScrollProgress';
 import CursorGlow from './components/CursorGlow';
 import BackToTop from './components/BackToTop';
@@ -16,6 +16,11 @@ import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
+// Heaviest dependency (three.js) is lazy-loaded so it never blocks the
+// initial paint / LCP — the rest of the page is fully interactive
+// while this loads in just behind it.
+const StarsCanvas = lazy(() => import('./components/StarBackground'));
+
 export default function App() {
   return (
     <div
@@ -31,12 +36,15 @@ export default function App() {
       {/* Cursor-following ambient glow (desktop only) */}
       <CursorGlow />
 
-      {/* 3D Canvas Background */}
-      <StarsCanvas />
+      {/* 3D Canvas Background — loaded after initial paint */}
+      <Suspense fallback={null}>
+        <StarsCanvas />
+      </Suspense>
+
+      <Navbar />
 
       {/* Main Content Layout */}
-      <div className="relative z-10">
-        <Navbar />
+      <main className="relative z-10">
         <Hero />
         <About />
         <Skills />
@@ -45,14 +53,18 @@ export default function App() {
         <Education />
         <Certifications />
         <Contact />
-        <Footer />
-      </div>
+      </main>
+
+      <Footer />
 
       {/* Floating back-to-top button */}
       <BackToTop />
 
       {/* Shows which random theme is active this visit */}
       <ThemeBadge />
+
+      {/* Vercel Analytics — tracks visits/page views */}
+      <Analytics />
     </div>
   );
 }

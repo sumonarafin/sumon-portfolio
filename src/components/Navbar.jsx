@@ -62,11 +62,16 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <a href="#" className="flex items-center gap-2 group">
-          <img
-            src="/images/logo.png"
-            alt="Sumon Arefin Logo"
-            className="w-11 h-11 rounded-full object-cover ring-2 ring-accent1/40 group-hover:scale-110 group-hover:ring-accent1 transition-all duration-300"
-          />
+          <picture>
+            <source srcSet="/images/logo.webp" type="image/webp" />
+            <img
+              src="/images/logo-128.jpg"
+              alt="Sumon Arefin Logo"
+              width="44"
+              height="44"
+              className="w-11 h-11 rounded-full object-cover ring-2 ring-accent1/40 group-hover:scale-110 group-hover:ring-accent1 transition-all duration-300"
+            />
+          </picture>
         </a>
 
         {/* Desktop Menu */}
@@ -108,6 +113,8 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
           className="md:hidden p-2 text-gray-300 hover:text-white"
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

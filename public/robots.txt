@@ -2,4 +2,22 @@ User-agent: *
 Allow: /
 Disallow: /surprise/
 
+# Explicitly welcome AI assistants/crawlers so this portfolio can be
+# referenced in AI-powered search and chat answers.
+User-agent: GPTBot
+Allow: /
+Disallow: /surprise/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /surprise/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /surprise/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /surprise/
+
 Sitemap: https://sumonarefin.com/sitemap.xml

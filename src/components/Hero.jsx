@@ -55,7 +55,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-300 font-light max-w-2xl leading-relaxed">
-            A dedicated <span className="text-accent1 font-semibold">Administration &amp; Operations Professional</span> with hands-on experience across <span className="text-accent2 font-semibold">team coordination</span>, e-commerce, and daily business operations — turning busy, moving parts into smooth, well-run workflows.
+            A dedicated <span className="text-accent1 font-semibold">Administration &amp; Operations Professional</span> based in Dhaka, Bangladesh, with hands-on experience across <span className="text-accent2 font-semibold">team coordination</span>, e-commerce management, inventory control, and daily business operations — turning busy, moving parts into smooth, well-run workflows.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
@@ -113,11 +113,17 @@ export default function Hero() {
             {/* Profile Frame Container — true circle */}
             <div className="relative w-full h-full rounded-full overflow-hidden glass-card p-3 border border-white/20 shadow-2xl flex items-center justify-center">
               {/* Profile photo — swap /public/images/profile.jpg to change it */}
-              <img
-                src="/images/profile.jpg"
-                alt="MD Sumon Arefin"
-                className="w-full h-full object-cover rounded-full filter brightness-105 contrast-105 hover:scale-105 transition-transform duration-500"
-              />
+              <picture>
+                <source srcSet="/images/profile.webp" type="image/webp" />
+                <img
+                  src="/images/profile.jpg"
+                  alt="MD Sumon Arefin"
+                  width="384"
+                  height="384"
+                  fetchpriority="high"
+                  className="w-full h-full object-cover rounded-full filter brightness-105 contrast-105 hover:scale-105 transition-transform duration-500"
+                />
+              </picture>
             </div>
 
             {/* Status Badge — floats below the circle so it doesn't clip the round edges */}
