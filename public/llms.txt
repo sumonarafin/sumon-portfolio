@@ -1,33 +1,26 @@
-# MD Sumon Arefin — Portfolio
+# MD Sumon Arefin
 
 > MD Sumon Arefin is an Administration & Operations Professional based in Savar, Dhaka, Bangladesh, with 7+ years of experience in restaurant management, e-commerce operations, inventory management, and team coordination.
 
-## About
-
-MD Sumon Arefin holds a Diploma in Computer Engineering from Daffodil Polytechnic Institute and has worked across administration, operations, e-commerce, and customer-facing roles in Bangladesh and Cambodia.
-
-## Experience
-
-- Restaurant Manager — Hungry Station, Dhamrai, Dhaka (2026 - Present)
-- Computer Operator — KB, Cambodia (2024 - 2025)
-- Brand Promoter — Banglalink Communication Ltd, Dhaka (2021 - 2024)
-- E-Commerce & Inventory Management — Soho Emporium, Remote (2019 - 2024)
-
-## Skills
-
-Office Administration, Workflow Optimisation, Team Coordination, Data Entry & Processing, ERP & Software Utilisation, Inventory Management, Shopify & WordPress, Customer Service, Product & Market Analysis, E-Commerce Management.
-
-## Education
-
-- Diploma in Computer Engineering — Daffodil Polytechnic Institute (2018 - 2022)
-- Higher Secondary School Certificate — College of Finance & Management, Dhaka (2015 - 2017)
-
-## Contact
-
-- Email: sumonarefinjob@gmail.com
-- LinkedIn: https://www.linkedin.com/in/sumonarefin/
-- Upwork: https://www.upwork.com/freelancers/~010e7c4edb82a8f110
+MD Sumon Arefin holds a Diploma in Computer Engineering from Daffodil Polytechnic Institute and has worked across administration, operations, e-commerce, and customer-facing roles in Bangladesh and Cambodia. Core skills include office administration, workflow optimisation, team coordination, data entry, ERP software, inventory management, Shopify & WordPress, and e-commerce management.
 
 ## Pages
 
-- Homepage: https://sumonarefin.com/ — full portfolio including experience, skills, testimonials, and contact form
+- [Portfolio Homepage](https://sumonarefin.com/): Full portfolio — about, skills, work experience, education, certifications, client testimonials, and a contact form.
+
+## Experience
+
+- [Restaurant Manager, Hungry Station](https://sumonarefin.com/#experience): Dhamrai, Dhaka — 2026 to Present.
+- [Computer Operator, KB](https://sumonarefin.com/#experience): Cambodia — 2024 to 2025.
+- [Brand Promoter, Banglalink Communication Ltd](https://sumonarefin.com/#experience): Dhaka, Bangladesh — 2021 to 2024.
+- [E-Commerce & Inventory Management, Soho Emporium](https://sumonarefin.com/#experience): Remote — 2019 to 2024.
+
+## Contact
+
+- [Email](mailto:sumonarefinjob@gmail.com): sumonarefinjob@gmail.com
+- [LinkedIn](https://www.linkedin.com/in/sumonarefin/): Professional profile and work history.
+- [Upwork](https://www.upwork.com/freelancers/~010e7c4edb82a8f110): Freelance profile with client reviews.
+
+## Optional
+
+- [Facebook](https://www.facebook.com/sumon.arafin): Social profile.

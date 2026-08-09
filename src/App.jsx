@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import ScrollProgress from './components/ScrollProgress';
 import CursorGlow from './components/CursorGlow';
 import BackToTop from './components/BackToTop';
@@ -65,6 +66,9 @@ export default function App() {
 
       {/* Vercel Analytics — tracks visits/page views */}
       <Analytics />
+
+      {/* Vercel Speed Insights — tracks real-user performance metrics */}
+      <SpeedInsights />
     </div>
   );
 }
