@@ -5,9 +5,22 @@ import ScrollReveal from './ScrollReveal';
 export default function Experience() {
   const experiences = [
     {
+      role: 'DMS Executive',
+      company: 'RR enterprise (Banglalink Distribution House)',
+      period: 'August 2026 - Present',
+      location: 'Savar, Dhaka',
+      points: [
+        'Manage daily distribution, retailer and sales data through DMS and Microsoft Excel.',
+        'Prepare daily/weekly/monthly sales, target and performance reports.',
+        'Maintain and verify retailer, SR and BP records and resolve data discrepancies.',
+        'Monitor sales targets, achievements and operational performance.',
+        'Coordinate with SRs, BPs, retailers and supervisors for smooth distribution operations.',
+      ]
+    },
+    {
       role: 'Restaurant Manager',
       company: 'Hungry Station',
-      period: '2026 - Present',
+      period: 'January 2026 - July 2026',
       location: 'Dhamrai, Dhaka',
       points: [
         'Managed daily restaurant operations and staff scheduling.',
@@ -59,7 +72,7 @@ export default function Experience() {
     }
   ];
 
-  const directions = ['left', 'right', 'left', 'right'];
+  const directions = ['left', 'right', 'left', 'right', 'left'];
 
   return (
     <section id="experience" className="py-24 px-6 relative z-10 max-w-5xl mx-auto">
