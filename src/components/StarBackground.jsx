@@ -12,8 +12,15 @@ import * as random from 'maath/random/dist/maath-random.esm';
 function getThemeTintedStarColor() {
   try {
     const styles = getComputedStyle(document.documentElement);
-    const raw = styles.getPropertyValue('--accent-1-rgb').trim(); // "168,85,247"
-    const [r, g, b] = raw.split(',').map((n) => parseInt(n.trim(), 10) / 255);
+    const raw = styles.getPropertyValue('--accent-1-rgb').trim();
+    const [r, g, b] = raw
+      .split(/[\s,]+/)
+      .map((n) => Number.parseInt(n, 10) / 255);
+
+    if (![r, g, b].every(Number.isFinite)) {
+      return new THREE.Color('#ffffff');
+    }
+
     const accent = new THREE.Color(r, g, b);
     const white = new THREE.Color(1, 1, 1);
     // Mostly white (so stars still read as stars), with a soft theme tint

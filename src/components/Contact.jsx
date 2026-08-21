@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { Mail, MessageCircle, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
@@ -11,8 +11,10 @@ const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '', website: '' });
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
+  const formOpenedAt = useRef(Date.now());
+  const lastSubmissionAt = useRef(0);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,6 +22,27 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Lightweight client-side spam protection: hidden honeypot, minimum fill time,
+    // field length limits, and a short cooldown between submissions.
+    if (formData.website) return;
+
+    const now = Date.now();
+    const filledTooFast = now - formOpenedAt.current < 2500;
+    const submittingTooSoon = now - lastSubmissionAt.current < 60000;
+    const invalidLengths =
+      formData.name.trim().length < 2 ||
+      formData.name.length > 80 ||
+      formData.subject.trim().length < 3 ||
+      formData.subject.length > 120 ||
+      formData.message.trim().length < 10 ||
+      formData.message.length > 3000;
+
+    if (filledTooFast || submittingTooSoon || invalidLengths) {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
+      return;
+    }
 
     if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
       console.error(
@@ -44,8 +67,10 @@ export default function Contact() {
         },
         { publicKey: EMAILJS_PUBLIC_KEY }
       );
+      lastSubmissionAt.current = Date.now();
+      formOpenedAt.current = Date.now();
       setStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      setFormData({ name: '', email: '', subject: '', message: '', website: '' });
       setTimeout(() => setStatus('idle'), 5000);
     } catch (err) {
       console.error('EmailJS send failed:', err);
@@ -110,55 +135,77 @@ export default function Contact() {
         {/* Form */}
         <ScrollReveal direction="right" className="lg:col-span-7 glass-card p-8 rounded-3xl border border-white/10">
           <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="absolute left-[-10000px] top-auto w-px h-px overflow-hidden" aria-hidden="true">
+              <label htmlFor="website">Website</label>
+              <input
+                id="website"
+                type="text"
+                name="website"
+                value={formData.website}
+                onChange={handleChange}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
                 <input
+                  id="name"
                   type="text"
                   name="name"
                   required
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="John Doe"
+                  autoComplete="name"
+                  maxLength={80}
                   className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-accent1 transition-colors"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Your Email</label>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">Your Email</label>
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   required
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="john@example.com"
+                  autoComplete="email"
+                  maxLength={254}
                   className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-accent1 transition-colors"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Subject</label>
+              <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">Subject</label>
               <input
+                id="subject"
                 type="text"
                 name="subject"
                 required
                 value={formData.subject}
                 onChange={handleChange}
                 placeholder="Job Opportunity / Inquiry"
+                maxLength={120}
                 className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-accent1 transition-colors"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Message</label>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">Message</label>
               <textarea
+                id="message"
                 name="message"
                 rows="5"
                 required
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Tell me about the opportunity..."
+                maxLength={3000}
                 className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-accent1 transition-colors resize-none"
               ></textarea>
             </div>
